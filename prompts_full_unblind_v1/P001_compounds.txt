@@ -1,0 +1,123 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+ChEMBL assay ID: CHEMBL3824709
+Target name: ALK tyrosine kinase receptor
+Target ChEMBL ID: CHEMBL4247
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 1587416
+doc_id: 99720
+description: Inhibition of human ALK using poly[Glu:Tyr] (4:1) as substrate and [gamma-33P]ATP measured after 1 hr
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+tid: 100417
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+src_id: 1
+src_assay_id: 840800
+chembl_id: CHEMBL3824709
+cell_id: NULL
+bao_format: BAO_0000357
+tissue_id: NULL
+variant_id: NULL
+aidx: CLD0
+assay_group: NULL
+
+Assay E (destination):
+ChEMBL assay ID: CHEMBL3824713
+Target name: NON-PROTEIN TARGET
+Target ChEMBL ID: CHEMBL3879801
+Target type: NON-MOLECULAR
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: U-937
+Assay cell type: U-937
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 1587420
+doc_id: 99720
+description: Antiproliferative activity against human ALK-negative U937 cells assessed as reduction in cell viability measured after 72 hrs by CellTiter 96 aqueous one solution cell proliferation assay
+assay_type: F
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: U-937
+assay_subcellular_fraction: NULL
+tid: 22221
+relationship_type: N
+confidence_score: 1
+curated_by: Autocuration
+src_id: 1
+src_assay_id: 840808
+chembl_id: CHEMBL3824713
+cell_id: 379
+bao_format: BAO_0000219
+tissue_id: NULL
+variant_id: NULL
+aidx: CLD0
+assay_group: NULL
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	parent_compound_chembl_id	parent_smiles	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	CHEMBL3397300	COc1cc(N2CCC(N(C)C)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	10.15	10.15	529.03	5.40	82.62	2	8	8	3	0.38	0
+C002	CHEMBL3545311	COc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.43	9.43	584.11	5.09	85.86	2	9	8	3	0.45	0
+C003	CHEMBL3822524	COc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(C2CC2)c(Nc2ccccc2P(C)(C)=O)n1	8.49	8.49	589.73	5.31	85.86	2	9	9	3	0.50	0
+C004	CHEMBL3822557	COc1cc(N2CCC(N3CCOCC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.31	9.31	571.06	5.17	91.85	2	9	8	3	0.43	0
+C005	CHEMBL3822611	COc1cc(N2CCN(C)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.74	9.74	500.97	4.63	82.62	2	8	7	3	0.33	0
+C006	CHEMBL3822645	COc1cc(-c2cnn(C3CCNCC3)c2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.12	9.12	552.02	5.66	105.99	3	8	8	4	0.30	0
+C007	CHEMBL3822973	COc1ccccc1Nc1ncc(Cl)c(Nc2ccccc2S(=O)(=O)C(C)C)n1	8.68	8.68	432.93	4.81	93.21	2	7	7	3	0.20	0
+C008	CHEMBL3822982	COc1cc(P(C)(C)=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2OC)n1	9.02	9.02	432.85	4.88	85.37	2	7	7	3	0.20	0
+C009	CHEMBL3823017	COc1cc(N2CCC(O)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.44	9.44	501.96	4.83	99.61	3	8	7	3	0.33	0
+C010	CHEMBL3823031	COc1cc(N2CCC(N3CCCC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.28	9.28	555.06	5.94	82.62	2	8	8	3	0.43	0
+C011	CHEMBL3823078	COc1cc(N2CCC(N3CCN(C)CC3)CC2)c(F)cc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	8.99	8.99	602.10	5.23	85.86	2	9	8	3	0.45	0
+C012	CHEMBL3823107	COc1cc(N2CC[C@@H](N(C)C)C2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.48	9.48	515.00	5.01	82.62	2	8	8	3	0.36	0
+C013	CHEMBL3823165	COc1cc(P(C)(C)=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	8.97	8.97	478.86	5.12	93.21	2	7	7	3	0.24	0
+C014	CHEMBL3823190	COc1cc(C2CCN(C)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.42	9.42	499.98	5.68	79.38	2	7	7	3	0.36	0
+C015	CHEMBL3823198	COc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(OC)c(Nc2ccccc2P(C)(C)=O)n1	8.92	8.92	579.69	4.45	95.09	2	10	9	3	0.47	0
+C016	CHEMBL3823218	COc1cc(N2CCC(CN3CCC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.06	9.06	555.06	5.80	82.62	2	8	9	3	0.43	0
+C017	CHEMBL3823224	CC(C)Oc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.17	9.17	612.16	5.87	85.86	2	9	9	3	0.48	0
+C018	CHEMBL3823235	COc1cc(N2CCN(CCO)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.74	9.74	531.00	3.99	102.85	3	9	9	3	0.36	0
+C019	CHEMBL3823243	COc1cc(N2CCC(N3CCCCC3)C2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.06	9.06	555.06	5.94	82.62	2	8	8	3	0.43	0
+C020	CHEMBL3823256	COc1cc(P(C)(C)=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2S(C)(=O)=O)n1	9.48	9.48	480.91	4.28	110.28	2	8	7	3	0.20	0
+C021	CHEMBL3823268	COc1cc(P(C)(C)=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2C(N)=O)n1	9.17	9.17	445.85	3.97	119.23	3	7	7	3	0.15	0
+C022	CHEMBL3823296	COc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(F)c(Nc2ccccc2P(C)(C)=O)n1	9.41	9.41	567.65	4.58	85.86	2	9	8	3	0.45	0
+C023	CHEMBL3823416	COc1cc(N2CCOCC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.62	9.62	487.93	4.71	88.61	2	8	7	3	0.30	0
+C024	CHEMBL3823549	COc1cc(OCCCN2CCCC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.66	9.66	530.01	5.74	88.61	2	8	11	3	0.38	0
+C025	CHEMBL3823577	COc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(C)c(Nc2ccccc2P(C)(C)=O)n1	9.38	9.38	563.69	4.75	85.86	2	9	8	3	0.47	0
+C026	CHEMBL3823603	COc1cc(OC2CCN(C)C2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.48	9.48	501.96	4.96	88.61	2	8	8	3	0.33	0
+C027	CHEMBL3823872	CNC(=O)CN1CCN(c2ccc(Nc3ncc(Cl)c(Nc4ccccc4P(C)(C)=O)n3)c(OC)c2)CC1	8.51	8.51	558.02	3.74	111.72	3	9	9	3	0.35	0
+C028	CHEMBL3823916	COc1cc(OC2CCN(C)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.27	9.27	515.98	5.35	88.61	2	8	8	3	0.36	0
+C029	CHEMBL3824007	COc1cc(N2CCN(C(C)=O)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.23	9.23	528.98	4.54	99.69	2	8	7	3	0.32	0
+C030	CHEMBL3824130	COc1cc(N2CCCN(C)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.14	9.14	515.00	5.02	82.62	2	8	7	3	0.36	0
+C031	CHEMBL3824290	COc1cc(N2CCC(N3CCCN(C)CC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.31	9.31	598.13	5.48	85.86	2	9	8	3	0.47	0
+C032	CHEMBL3824304	COc1cc(P(C)(C)=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2S(=O)(=O)C(C)C)n1	9.51	9.51	508.97	5.06	110.28	2	8	8	3	0.27	0
+C033	CHEMBL3824308	CCP(=O)(CC)c1ccccc1Nc1nc(Nc2ccc(N3CCC(N4CCN(C)CC4)CC3)cc2OC)ncc1Cl	9.92	9.92	612.16	5.87	85.86	2	9	10	3	0.48	0
+C034	CHEMBL3824318	CCOc1cc(N2CCC(N3CCN(C)CC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.12	9.12	598.13	5.48	85.86	2	9	9	3	0.47	0
+C035	CHEMBL3824326	COc1cc(P(C)(C)=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2C(C)=O)n1	9.1	9.10	444.86	5.08	93.21	2	7	7	3	0.19	0
+C036	CHEMBL3824327	COc1cc(N2CCN(C3CCN(C)CC3)CC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2P(C)(C)=O)n1	9.55	9.55	584.11	5.09	85.86	2	9	8	3	0.45	0
+C037	CHEMBL601719	C[C@@H](Oc1cc(-c2cnn(C3CCNCC3)c2)cnc1N)c1c(Cl)ccc(F)c1Cl	9.19	9.19	450.35	5.04	77.99	2	5	5	3	0.33	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

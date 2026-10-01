@@ -1,0 +1,81 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+ChEMBL assay ID: CHEMBL3824709
+Target name: ALK tyrosine kinase receptor
+Target ChEMBL ID: CHEMBL4247
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 1587416
+doc_id: 99720
+description: Inhibition of human ALK using poly[Glu:Tyr] (4:1) as substrate and [gamma-33P]ATP measured after 1 hr
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+tid: 100417
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+src_id: 1
+src_assay_id: 840800
+chembl_id: CHEMBL3824709
+cell_id: NULL
+bao_format: BAO_0000357
+tissue_id: NULL
+variant_id: NULL
+aidx: CLD0
+assay_group: NULL
+
+Assay E (destination):
+ChEMBL assay ID: CHEMBL3824713
+Target name: NON-PROTEIN TARGET
+Target ChEMBL ID: CHEMBL3879801
+Target type: NON-MOLECULAR
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: U-937
+Assay cell type: U-937
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 1587420
+doc_id: 99720
+description: Antiproliferative activity against human ALK-negative U937 cells assessed as reduction in cell viability measured after 72 hrs by CellTiter 96 aqueous one solution cell proliferation assay
+assay_type: F
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: U-937
+assay_subcellular_fraction: NULL
+tid: 22221
+relationship_type: N
+confidence_score: 1
+curated_by: Autocuration
+src_id: 1
+src_assay_id: 840808
+chembl_id: CHEMBL3824713
+cell_id: 379
+bao_format: BAO_0000219
+tissue_id: NULL
+variant_id: NULL
+aidx: CLD0
+assay_group: NULL
+
+No compound identities, structures, or B potency measurements are provided.
+Predict one typical delta for a compound measured in both assays.
+Return only one JSON object with exactly one key, "delta_pchembl".
+Its value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations.
