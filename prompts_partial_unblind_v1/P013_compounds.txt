@@ -1,0 +1,68 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Target name: ALK tyrosine kinase receptor
+BAO format: BAO_0000019
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of N-terminal GST-tagged human ALK L1196M mutant cytoplasmic domain (1058 to 1620 residues) expressed in baculovirus expression system using srctide as substrate incubated for 1 hr by mobility shift assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000019
+assay_group: NULL
+
+Assay E (destination):
+Target name: HCC78
+Target type: CELL-LINE
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: HCC78
+Assay cell type: HCC78
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Cytotoxicity against human HCC78 cells incubated for 72 hrs by MTT assay
+assay_type: F
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: HCC78
+assay_subcellular_fraction: NULL
+relationship_type: N
+confidence_score: 1
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	9.06	9.06	657.20	3.82	140.31	2	10	10	3	0.40	0
+C002	8.57	8.57	656.17	4.24	154.14	2	10	10	3	0.37	0
+C003	8.38	8.38	517.01	4.34	125.55	3	8	8	3	0.26	0
+C004	8.29	8.29	574.11	4.40	142.78	3	9	11	3	0.35	0
+C005	9.14	9.14	588.13	4.61	120.00	2	9	11	3	0.37	0
+C006	8.43	8.43	602.12	4.14	137.07	2	9	10	3	0.33	0
+C007	9.02	9.02	574.06	3.54	159.85	3	9	10	3	0.28	0
+C008	6.93	6.93	450.35	5.04	77.99	2	5	5	3	0.33	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

@@ -1,0 +1,21 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Description: Inhibition of [target] (unknown origin)
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+
+Assay E (destination):
+Description: Antiproliferative activity against wild type mouse [cell line] cells assessed as reduction in cell growth incubated for 2 to 3 days by Bright-Glo luciferase assay
+BAO format: BAO_0000219
+Target type: CELL-LINE
+Endpoint: exact IC50 in nM
+
+No compound identities, structures, or B potency measurements are provided.
+Predict one typical delta for a compound measured in both assays.
+Return only one JSON object with exactly one key, "delta_pchembl".
+Its value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations.

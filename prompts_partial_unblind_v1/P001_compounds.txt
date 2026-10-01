@@ -1,0 +1,97 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Target name: ALK tyrosine kinase receptor
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of human ALK using poly[Glu:Tyr] (4:1) as substrate and [gamma-33P]ATP measured after 1 hr
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000357
+assay_group: NULL
+
+Assay E (destination):
+Target name: NON-PROTEIN TARGET
+Target type: NON-MOLECULAR
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: U-937
+Assay cell type: U-937
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Antiproliferative activity against human ALK-negative U937 cells assessed as reduction in cell viability measured after 72 hrs by CellTiter 96 aqueous one solution cell proliferation assay
+assay_type: F
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: U-937
+assay_subcellular_fraction: NULL
+relationship_type: N
+confidence_score: 1
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	10.15	10.15	529.03	5.40	82.62	2	8	8	3	0.38	0
+C002	9.43	9.43	584.11	5.09	85.86	2	9	8	3	0.45	0
+C003	8.49	8.49	589.73	5.31	85.86	2	9	9	3	0.50	0
+C004	9.31	9.31	571.06	5.17	91.85	2	9	8	3	0.43	0
+C005	9.74	9.74	500.97	4.63	82.62	2	8	7	3	0.33	0
+C006	9.12	9.12	552.02	5.66	105.99	3	8	8	4	0.30	0
+C007	8.68	8.68	432.93	4.81	93.21	2	7	7	3	0.20	0
+C008	9.02	9.02	432.85	4.88	85.37	2	7	7	3	0.20	0
+C009	9.44	9.44	501.96	4.83	99.61	3	8	7	3	0.33	0
+C010	9.28	9.28	555.06	5.94	82.62	2	8	8	3	0.43	0
+C011	8.99	8.99	602.10	5.23	85.86	2	9	8	3	0.45	0
+C012	9.48	9.48	515.00	5.01	82.62	2	8	8	3	0.36	0
+C013	8.97	8.97	478.86	5.12	93.21	2	7	7	3	0.24	0
+C014	9.42	9.42	499.98	5.68	79.38	2	7	7	3	0.36	0
+C015	8.92	8.92	579.69	4.45	95.09	2	10	9	3	0.47	0
+C016	9.06	9.06	555.06	5.80	82.62	2	8	9	3	0.43	0
+C017	9.17	9.17	612.16	5.87	85.86	2	9	9	3	0.48	0
+C018	9.74	9.74	531.00	3.99	102.85	3	9	9	3	0.36	0
+C019	9.06	9.06	555.06	5.94	82.62	2	8	8	3	0.43	0
+C020	9.48	9.48	480.91	4.28	110.28	2	8	7	3	0.20	0
+C021	9.17	9.17	445.85	3.97	119.23	3	7	7	3	0.15	0
+C022	9.41	9.41	567.65	4.58	85.86	2	9	8	3	0.45	0
+C023	9.62	9.62	487.93	4.71	88.61	2	8	7	3	0.30	0
+C024	9.66	9.66	530.01	5.74	88.61	2	8	11	3	0.38	0
+C025	9.38	9.38	563.69	4.75	85.86	2	9	8	3	0.47	0
+C026	9.48	9.48	501.96	4.96	88.61	2	8	8	3	0.33	0
+C027	8.51	8.51	558.02	3.74	111.72	3	9	9	3	0.35	0
+C028	9.27	9.27	515.98	5.35	88.61	2	8	8	3	0.36	0
+C029	9.23	9.23	528.98	4.54	99.69	2	8	7	3	0.32	0
+C030	9.14	9.14	515.00	5.02	82.62	2	8	7	3	0.36	0
+C031	9.31	9.31	598.13	5.48	85.86	2	9	8	3	0.47	0
+C032	9.51	9.51	508.97	5.06	110.28	2	8	8	3	0.27	0
+C033	9.92	9.92	612.16	5.87	85.86	2	9	10	3	0.48	0
+C034	9.12	9.12	598.13	5.48	85.86	2	9	9	3	0.47	0
+C035	9.1	9.10	444.86	5.08	93.21	2	7	7	3	0.19	0
+C036	9.55	9.55	584.11	5.09	85.86	2	9	8	3	0.45	0
+C037	9.19	9.19	450.35	5.04	77.99	2	5	5	3	0.33	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

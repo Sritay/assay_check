@@ -1,0 +1,94 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+ChEMBL assay ID: CHEMBL4716834
+Target name: ALK tyrosine kinase receptor
+Target ChEMBL ID: CHEMBL4247
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 2061581
+doc_id: 118883
+description: Inhibition of ALK (unknown origin)
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+tid: 100417
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+src_id: 1
+src_assay_id: NULL
+chembl_id: CHEMBL4716834
+cell_id: NULL
+bao_format: BAO_0000357
+tissue_id: NULL
+variant_id: NULL
+aidx: 1261900
+assay_group: NULL
+
+Assay E (destination):
+ChEMBL assay ID: CHEMBL4716833
+Target name: BaF3
+Target ChEMBL ID: CHEMBL614524
+Target type: CELL-LINE
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: BaF3
+Assay cell type: BaF3
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 2061580
+doc_id: 118883
+description: Antiproliferative activity against wild type mouse BaF3 cells assessed as reduction in cell growth incubated for 2 to 3 days by Bright-Glo luciferase assay
+assay_type: A
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Mus musculus
+assay_tax_id: 10090
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: BaF3
+assay_subcellular_fraction: NULL
+tid: 80036
+relationship_type: N
+confidence_score: 1
+curated_by: Autocuration
+src_id: 1
+src_assay_id: NULL
+chembl_id: CHEMBL4716833
+cell_id: 627
+bao_format: BAO_0000219
+tissue_id: NULL
+variant_id: NULL
+aidx: 1261898
+assay_group: NULL
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	parent_compound_chembl_id	parent_smiles	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	CHEMBL3651854	Cc1cc(Nc2nc(Nc3ccccc3S(=O)(=O)C(C)C)c3c(C)[nH]nc3n2)c(OC(C)C)cc1C1CCN(C)CC1	8.4	8.40	591.78	6.24	125.13	3	9	9	4	0.45	0
+C002	CHEMBL3734798	C[C@@H](Oc1cc(-c2ccn(C3CCNCC3)n2)cnc1N)c1c(Cl)ccc(F)c1Cl	8.15	8.15	450.35	5.04	77.99	2	5	5	3	0.33	0
+C003	CHEMBL4739938	Cc1cc(Nc2cc(Nc3ccccc3S(=O)(=O)C(C)C)nc3[nH]ccc23)c(OC(C)C)cc1C1CCN(C)CC1	6.73	6.73	575.78	7.14	99.35	3	7	9	4	0.41	0
+C004	CHEMBL4762256	Cc1cc(Nc2nc(Nc3ccccc3S(=O)(=O)C(C)C)c3cc[nH]c3n2)c(OC(C)C)cc1C1CCN(C)CC1	8.1	8.10	576.77	6.53	112.24	3	8	9	4	0.42	0
+C005	CHEMBL4762861	Cc1cc(Nc2nc(Nc3ccccc3S(=O)(=O)C(C)C)c3c(C)n[nH]c3n2)c(OC(C)C)cc1C1CCNCC1	8.3	8.30	577.76	5.89	133.92	4	9	9	4	0.43	0
+C006	CHEMBL4762929	COc1ccc2nc(Nc3cc(C)c(C4CCN(C)CC4)cc3OC(C)C)nc(Nc3ccccc3S(=O)(=O)C(C)C)c2c1	5.71	5.71	617.82	7.21	105.68	2	9	10	4	0.41	0
+C007	CHEMBL4780490	Cc1cc2c(Nc3ccccc3S(=O)(=O)C(C)C)nc(Nc3cc(C)c(C4CCNCC4)cc3OC(C)C)nc2[nH]1	5.41	5.41	576.77	6.50	121.03	4	8	9	4	0.42	0
+C008	CHEMBL4795530	Cc1cc(NC2=NC3NCCCC3C(Nc3ccccc3S(=O)(=O)C(C)C)=N2)c(OC(C)C)cc1C1CCNCC1	6.67	6.67	580.80	5.05	116.21	4	9	7	2	0.55	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

@@ -1,0 +1,55 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Target name: ALK tyrosine kinase receptor
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of ALK (unknown origin)
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000357
+assay_group: NULL
+
+Assay E (destination):
+Target name: Insulin receptor
+Target type: SINGLE PROTEIN
+Target class: other kinase
+Target confidence score: 9
+Cell name: not recorded
+Assay cell type: BaF3
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of Tel fused InsR (unknown origin) expressed in mouse BaF3 cells assessed as reduction in cell proliferation incubated for 2 to 3 days by Bright-Glo luciferase assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: BaF3
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+No compound identities, structures, or B potency measurements are provided.
+Predict one typical delta for a compound measured in both assays.
+Return only one JSON object with exactly one key, "delta_pchembl".
+Its value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations.

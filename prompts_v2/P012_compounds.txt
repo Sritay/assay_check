@@ -1,0 +1,34 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Description: Inhibition of recombinant human N-terminal GST-tagged [target] cytoplasmic domain (1058 to 1620 residues) expressed in baculovirus expression system using peptide substrate after 1 hr by mobility shift assay
+BAO format: BAO_0000019
+Endpoint: exact IC50 in nM
+
+Assay E (destination):
+Description: Antiproliferative activity against human [cell line] cells harboring [fusion] after 72 hrs by MTT assay
+BAO format: BAO_0000219
+Target type: CELL-LINE
+Endpoint: exact IC50 in nM
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	8.52	8.52	627.24	7.16	109.34	2	10	10	4	0.37	0
+C002	8.4	8.40	686.30	5.82	132.81	3	12	13	4	0.41	0
+C003	8.47	8.47	656.28	6.46	112.58	2	11	11	4	0.39	0
+C004	8.37	8.37	598.13	3.79	139.19	3	11	10	4	0.33	0
+C005	8.52	8.52	626.19	4.57	139.19	3	11	10	4	0.38	0
+C006	8.64	8.64	628.22	5.68	112.58	2	11	10	4	0.34	0
+C007	8.41	8.41	611.17	5.62	127.16	2	10	10	4	0.38	0
+C008	8.85	8.85	612.16	4.14	130.40	2	11	10	4	0.36	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

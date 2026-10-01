@@ -1,0 +1,21 @@
+pair_code,b_assay_id,e_assay_id,endpoint,shared_compounds,compound_prompt,assay_only_prompt,review_note
+P001,CHEMBL3824709,CHEMBL3824713,IC50,37,P001_compounds.txt,P001_assay_only.txt,
+P002,CHEMBL4142784,CHEMBL4142800,IC50,25,P002_compounds.txt,P002_assay_only.txt,
+P003,CHEMBL4354245,CHEMBL4354248,IC50,12,P003_compounds.txt,P003_assay_only.txt,
+P004,CHEMBL4354245,CHEMBL4354250,IC50,12,P004_compounds.txt,P004_assay_only.txt,
+P005,CHEMBL4400312,CHEMBL4400316,IC50,8,P005_compounds.txt,P005_assay_only.txt,
+P006,CHEMBL4400312,CHEMBL4400317,IC50,8,P006_compounds.txt,P006_assay_only.txt,
+P007,CHEMBL4400313,CHEMBL4400316,IC50,8,P007_compounds.txt,P007_assay_only.txt,
+P008,CHEMBL4400313,CHEMBL4400317,IC50,8,P008_compounds.txt,P008_assay_only.txt,
+P009,CHEMBL4716834,CHEMBL4716832,IC50,8,P009_compounds.txt,P009_assay_only.txt,
+P010,CHEMBL4716834,CHEMBL4716833,IC50,8,P010_compounds.txt,P010_assay_only.txt,
+P011,CHEMBL3364272,CHEMBL3364275,IC50,8,P011_compounds.txt,P011_assay_only.txt,
+P012,CHEMBL4136448,CHEMBL4136443,IC50,8,P012_compounds.txt,P012_assay_only.txt,
+P013,CHEMBL4348491,CHEMBL4348487,IC50,8,P013_compounds.txt,P013_assay_only.txt,
+P014,CHEMBL4400323,CHEMBL4400316,IC50,7,P014_compounds.txt,P014_assay_only.txt,
+P015,CHEMBL4400323,CHEMBL4400317,IC50,7,P015_compounds.txt,P015_assay_only.txt,
+P016,CHEMBL4400312,CHEMBL4400319,IC50,6,P016_compounds.txt,P016_assay_only.txt,
+P017,CHEMBL4400313,CHEMBL4400319,IC50,6,P017_compounds.txt,P017_assay_only.txt,
+P018,CHEMBL3705231,CHEMBL3705230,IC50,6,P018_compounds.txt,P018_assay_only.txt,E description may be cell-free despite its BAO label
+P019,CHEMBL3705231,CHEMBL3707616,IC50,6,P019_compounds.txt,P019_assay_only.txt,E description may be cell-free despite its BAO label
+P020,CHEMBL3705231,CHEMBL3707544,IC50,6,P020_compounds.txt,P020_assay_only.txt,E description may be cell-free despite its BAO label

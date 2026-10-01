@@ -1,0 +1,81 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+ChEMBL assay ID: CHEMBL3705231
+Target name: ALK tyrosine kinase receptor
+Target ChEMBL ID: CHEMBL4247
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 1527702
+doc_id: 94418
+description: HTRF Kinase Assay: HTRF kinase assay: 40 μL reactions were run in black 384 well polystyrene plates in assay buffer (50 mM Tris, pH 7.8, 100 mM NaCI, 0.1 mg/mL BSA, 5 mM DTT), containing 0.5 μM Biotinylated peptide substrate, 10 mM MgCl2, 90 μM ATP, and 0.25 nM enzyme for 2 hours at 25° C. Reactions were stopped by addition of 20 μL assay buffer supplemented with an additional 50 mM NaCl, 0.4 mg/mL BSA, 45 mM EDTA, 4.5 nM LANCE Eu-W1024 labeled anti-phosphotyrosine antibody and 200 nM streptavidin conjugated SureLight-allophycocyanin. Plates were read in Fusion α-FP instrument (Perkin-Elmer).
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+tid: 100417
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+src_id: 37
+src_assay_id: 6385_2_pol_5809
+chembl_id: CHEMBL3705231
+cell_id: NULL
+bao_format: BAO_0000357
+tissue_id: NULL
+variant_id: NULL
+aidx: 6385_2_pol_5809
+assay_group: NULL
+
+Assay E (destination):
+ChEMBL assay ID: CHEMBL3707544
+Target name: Tyrosine-protein kinase JAK2
+Target ChEMBL ID: CHEMBL2971
+Target type: SINGLE PROTEIN
+Target class: other kinase
+Target confidence score: 9
+Cell name: not recorded
+Assay cell type: not recorded
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+ChEMBL assays table (NULL means no recorded value):
+assay_id: 1536323
+doc_id: 94418
+description: In Vitro Kinase Assay: One or more compounds herein were tested for inhibitory activity of JAK targets according to the following in vitro assay described in Park et al., Analytical Biochemistry 1999, 269, 94-104. The catalytic domains of human JAK1 (a.a. 837-1142), JAK2 (a.a. 828-1132) and JAK3 (a.a. 781-1124) with an N-terminal His tag were expressed using baculovirus in insect cells and purified. The catalytic activity of JAK1, JAK2 or JAK3 was assayed by measuring the phosphorylation of a biotinylated peptide. The phosphorylated peptide was detected by homogenous time resolved fluorescence (HTRF). IC50s of compounds were measured for each kinase in the reactions that contain the enzyme, ATP and 500 nM peptide in 50 mM Tris (pH 7.8) buffer with 100 mM NaCl, 5 mM DTT, and 0.1 mg/mL (0.01%) BSA. The ATP concentration in the reactions was 90 uM for JAK1, 30 uM for JAK2 and 3 uM for JAK3. Reactions were carried out at room temperature for 1 hr and then stopped with 20 uL 45 mM EDTA.
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_tax_id: 9606
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+tid: 10938
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+src_id: 37
+src_assay_id: 6385_1_pol_4918
+chembl_id: CHEMBL3707544
+cell_id: NULL
+bao_format: BAO_0000219
+tissue_id: NULL
+variant_id: NULL
+aidx: 6385_1_pol_4918
+assay_group: NULL
+
+No compound identities, structures, or B potency measurements are provided.
+Predict one typical delta for a compound measured in both assays.
+Return only one JSON object with exactly one key, "delta_pchembl".
+Its value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations.

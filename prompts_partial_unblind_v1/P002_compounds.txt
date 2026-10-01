@@ -1,0 +1,85 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Target name: ALK tyrosine kinase receptor
+BAO format: BAO_0000019
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of recombinant human GST-tagged ALK expressed in baculovirus expression system by Z'LYTE assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000019
+assay_group: NULL
+
+Assay E (destination):
+Target name: HCC78
+Target type: CELL-LINE
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: HCC78
+Assay cell type: HCC78
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Antiproliferative activity against human HCC78 cells after 48 hrs by MTT assay
+assay_type: F
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: HCC78
+assay_subcellular_fraction: NULL
+relationship_type: N
+confidence_score: 1
+curated_by: Intermediate
+bao_format: BAO_0000219
+assay_group: NULL
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	5.1	5.10	444.56	5.66	76.14	2	6	8	4	0.16	0
+C002	5.33	5.33	463.49	4.91	81.07	2	5	8	4	0.16	0
+C003	5.02	5.02	479.94	5.42	81.07	2	5	8	4	0.16	0
+C004	5.07	5.07	497.00	6.45	76.14	2	6	8	4	0.16	0
+C005	5.46	5.46	455.56	5.25	81.07	2	5	8	4	0.22	0
+C006	5.75	5.75	570.69	5.38	102.77	2	8	11	4	0.34	0
+C007	5.07	5.07	457.53	4.64	90.30	2	6	9	4	0.19	0
+C008	5.06	5.06	428.50	3.93	93.96	2	6	8	4	0.17	0
+C009	5.04	5.04	613.08	7.03	84.31	2	6	9	4	0.32	0
+C010	5.16	5.16	459.59	4.03	69.73	2	6	8	3	0.33	0
+C011	5.35	5.35	556.67	5.03	111.56	3	8	11	4	0.32	0
+C012	5.17	5.17	441.54	4.94	81.07	2	5	8	4	0.19	0
+C013	5.09	5.09	445.50	4.77	81.07	2	5	8	4	0.16	0
+C014	5.64	5.64	517.59	4.65	108.76	2	8	11	4	0.25	0
+C015	5.17	5.17	446.55	4.12	75.72	2	6	8	3	0.31	0
+C016	5.06	5.06	527.62	6.23	90.94	2	7	11	4	0.23	0
+C017	5.23	5.23	529.95	6.30	81.07	2	5	8	4	0.19	0
+C018	5.33	5.33	444.58	5.27	66.49	2	5	8	3	0.33	0
+C019	5.21	5.21	457.53	4.64	90.30	2	6	9	4	0.19	0
+C020	5.51	5.51	524.67	5.67	84.31	2	6	9	4	0.32	0
+C021	5.01	5.01	548.01	5.40	69.73	2	6	8	3	0.33	0
+C022	5.05	5.05	511.50	5.53	90.30	2	6	9	4	0.19	0
+C023	5.12	5.12	445.55	5.06	89.03	2	7	8	4	0.17	0
+C024	5.44	5.44	487.56	4.65	99.53	2	7	10	4	0.22	0
+C025	5.17	5.17	452.52	4.50	104.86	2	6	8	4	0.15	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

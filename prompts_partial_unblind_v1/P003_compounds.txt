@@ -1,0 +1,72 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Target name: ALK tyrosine kinase receptor
+BAO format: BAO_0000019
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of recombinant human N-terminal GST-tagged ALK (catalytic domain 1058 - 1620 residues) expressed in baculovirus system assessed as decrease in substrate phosphorylation using TK peptide as substrate preincubated with enzyme for 30 mins followed by substrate addition by HTRF method
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000019
+assay_group: NULL
+
+Assay E (destination):
+Target name: A549
+Target type: CELL-LINE
+Target class: phenotypic target
+Target confidence score: 1
+Cell name: A549
+Assay cell type: A549
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Antiproliferative activity against human A549 cells assessed as reduction in cell viability incubated for 72 hrs by MTT assay
+assay_type: F
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: A549
+assay_subcellular_fraction: NULL
+relationship_type: N
+confidence_score: 1
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+For each compound below, predict one delta relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	6.1	6.10	488.51	4.30	84.31	2	6	7	3	0.38	0
+C002	5.67	5.67	681.80	5.48	85.44	2	9	10	3	0.50	0
+C003	6.25	6.25	668.76	5.57	91.43	2	9	10	3	0.49	0
+C004	6.25	6.25	584.64	4.67	90.99	3	8	9	3	0.40	0
+C005	5.61	5.61	488.51	4.30	84.31	2	6	7	3	0.38	0
+C006	6.38	6.38	681.80	5.48	85.44	2	9	10	3	0.50	0
+C007	6.31	6.31	598.67	5.02	82.20	2	8	9	3	0.42	0
+C008	5.37	5.37	596.70	6.07	81.76	3	7	9	3	0.44	0
+C009	5.49	5.49	668.76	5.57	91.43	2	9	10	3	0.49	0
+C010	5.36	5.36	490.60	4.69	84.95	2	7	9	3	0.36	0
+C011	6.76	6.76	584.64	4.67	90.99	3	8	9	3	0.40	0
+C012	5.7	5.70	596.70	6.07	81.76	3	7	9	3	0.44	0
+
+Return only one JSON object. Use every compound label from the table as a key.
+Each value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations or omit compounds.

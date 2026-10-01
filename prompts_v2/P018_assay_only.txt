@@ -1,0 +1,21 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+Return a signed number between -5 and +5 pChEMBL units.
+
+Assay B (source, biochemical):
+Description: HTRF Kinase Assay: HTRF kinase assay: 40 μL reactions were run in black 384 well polystyrene plates in assay buffer (50 mM Tris, pH 7.8, 100 mM NaCI, 0.1 mg/mL BSA, 5 mM DTT), containing 0.5 μM Biotinylated peptide substrate, 10 mM MgCl2, 90 μM ATP, and 0.25 nM enzyme for 2 hours at 25° C. Reactions were stopped by addition of 20 μL assay buffer supplemented with an additional 50 mM NaCl, 0.4 mg/mL BSA, 45 mM EDTA, 4.5 nM LANCE Eu-W1024 labeled anti-phosphotyrosine antibody and 200 nM streptavidin conjugated SureLight-allophycocyanin. Plates were read in Fusion α-FP instrument (Perkin-Elmer).
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+
+Assay E (destination):
+Description: In Vitro Kinase Assay: One or more compounds herein were tested for inhibitory activity of JAK targets according to the following in vitro assay described in Park et al., Analytical Biochemistry 1999, 269, 94-104. The catalytic domains of human [E target] (a.a. 837-1142), JAK2 (a.a. 828-1132) and JAK3 (a.a. 781-1124) with an N-terminal His tag were expressed using baculovirus in insect cells and purified. The catalytic activity of [E target], JAK2 or JAK3 was assayed by measuring the phosphorylation of a biotinylated peptide. The phosphorylated peptide was detected by homogenous time resolved fluorescence (HTRF). IC50s of compounds were measured for each kinase in the reactions that contain the enzyme, ATP and 500 nM peptide in 50 mM Tris (pH 7.8) buffer with 100 mM NaCl, 5 mM DTT, and 0.1 mg/mL (0.01%) BSA. The ATP concentration in the reactions was 90 uM for [E target], 30 uM for JAK2 and 3 uM for JAK3. Reactions were carried out at room temperature for 1 hr and then stopped with 20 uL 45 mM EDTA.
+BAO format: BAO_0000219
+Target type: SINGLE PROTEIN
+Endpoint: exact IC50 in nM
+
+No compound identities, structures, or B potency measurements are provided.
+Predict one typical delta for a compound measured in both assays.
+Return only one JSON object with exactly one key, "delta_pchembl".
+Its value must be a signed JSON number between -5 and +5, not a string.
+Do not add explanations.
