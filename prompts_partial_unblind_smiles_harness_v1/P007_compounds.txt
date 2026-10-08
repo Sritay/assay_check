@@ -1,0 +1,200 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+The final predicted_delta_pchembl must be between -5 and +5 pChEMBL units.
+
+Assay B (source, cellular signalling / reporter):
+Target name: TGF-beta receptor type-1
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of ALK5-mediated TNFalpha-induced Smad2/3 phosphorylation in human A549 cells preincubated for 2 hrs before addition of TNFalpha after 1 hr by fluorescence analysis
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: A549
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+Assay E (destination):
+Target name: TGF-beta receptor type-1
+Target type: SINGLE PROTEIN
+Target class: ALK-family receptor kinase
+Target confidence score: 9
+Cell name: not recorded
+Assay cell type: not recorded
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of human ALK5 using GST-tagged Smad3 as substrate assessed as substrate phosphorylation after 30 mins by ELISA
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000357
+assay_group: NULL
+
+For each compound below, assess the mechanisms and predict one delta
+relative to its B median pChEMBL.
+The B_pChEMBL_values column lists all qualifying B measurements; no E measurements are shown.
+Descriptors are calculated from the parent compound with RDKit.
+
+Compound table (tab-separated):
+compound	parent_smiles	B_pChEMBL_values	B_median_pChEMBL	MW_Da	cLogP	TPSA_A2	HBD	HBA	rotatable_bonds	aromatic_rings	fraction_sp3	formal_charge
+C001	Cc1csc(-c2nc[nH]c2-c2ccc3ncsc3c2)n1	8.06	8.06	298.40	4.12	54.46	1	5	2	4	0.07	0
+C002	Cc1csc(-c2nc(C)[nH]c2-c2ccc3ncsc3c2)n1	7.77	7.77	312.42	4.43	54.46	1	5	2	4	0.13	0
+C003	CCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.46	7.46	326.45	4.68	54.46	1	5	3	4	0.19	0
+C004	CCCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.48	7.48	340.48	5.07	54.46	1	5	4	4	0.24	0
+C005	Cc1csc(-c2nc(C(C)C)[nH]c2-c2ccc3ncsc3c2)n1	7.32	7.32	340.48	5.24	54.46	1	5	3	4	0.24	0
+C006	Cc1csc(-c2nc(CC(C)C)[nH]c2-c2ccc3ncsc3c2)n1	7.37	7.37	354.50	5.32	54.46	1	5	4	4	0.28	0
+C007	Cc1csc(-c2nc(C(C)(C)C)[nH]c2-c2ccc3ncsc3c2)n1	7.17	7.17	354.50	5.42	54.46	1	5	2	4	0.28	0
+C008	CCCCCCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.92	6.92	382.56	6.24	54.46	1	5	7	4	0.35	0
+C009	Cc1csc(-c2nc(C(F)(F)F)[nH]c2-c2ccc3ncsc3c2)n1	7.31	7.31	366.39	5.14	54.46	1	5	2	4	0.13	0
+C010	Cc1csc(-c2nc(C3CC3)[nH]c2-c2ccc3ncsc3c2)n1	7.35	7.35	338.46	5.00	54.46	1	5	3	4	0.24	0
+C011	Cc1csc(-c2nc(C3CCCC3)[nH]c2-c2ccc3ncsc3c2)n1	7.4	7.40	366.52	5.78	54.46	1	5	3	4	0.32	0
+C012	Cc1csc(-c2nc(C3CCCCC3)[nH]c2-c2ccc3ncsc3c2)n1	7.12	7.12	380.54	6.17	54.46	1	5	3	4	0.35	0
+C013	Cc1csc(-c2nc(C3CCC(=O)CC3)[nH]c2-c2ccc3ncsc3c2)n1	7.05	7.05	394.53	5.35	71.53	1	6	3	4	0.30	0
+C014	Cc1csc(-c2nc(C3CCOCC3)[nH]c2-c2ccc3ncsc3c2)n1	7.0	7.00	382.51	5.01	63.69	1	6	3	4	0.32	0
+C015	Cc1csc(-c2nc(CN3CCCC3=O)[nH]c2-c2ccc3ncsc3c2)n1	6.89	6.89	395.51	4.24	74.77	1	6	4	4	0.26	0
+C016	CCCC(=O)N(C)Cc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.96	6.96	411.56	4.88	74.77	1	6	6	4	0.30	0
+C017	CCCCNCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.14	7.14	383.55	5.01	66.49	2	6	7	4	0.32	0
+C018	CCCC(=O)CCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.38	7.38	396.54	5.42	71.53	1	6	7	4	0.30	0
+C019	CCCCNC(=O)c1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.38	6.38	397.53	4.65	83.56	2	6	6	4	0.26	0
+C020	CCNC(=O)CCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.15	7.15	397.53	4.19	83.56	2	6	6	4	0.26	0
+C021	CNC(=O)CCCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.64	6.64	397.53	4.19	83.56	2	6	6	4	0.26	0
+C022	Cc1csc(-c2nc(CCCCC(N)=O)[nH]c2-c2ccc3ncsc3c2)n1	6.72	6.72	397.53	4.32	97.55	2	6	7	4	0.26	0
+C023	CCNC(=O)OCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.03	7.03	399.50	4.36	92.79	2	7	5	4	0.22	0
+C024	CCC(=O)NCCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.89	6.89	397.53	4.19	83.56	2	6	6	4	0.26	0
+C025	CC(=O)NCCCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.82	6.82	397.53	4.19	83.56	2	6	6	4	0.26	0
+C026	CCNC(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.89	6.89	398.52	3.94	95.59	3	6	5	4	0.22	0
+C027	CCCS(=O)(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.82	6.82	433.58	3.95	100.63	2	7	7	4	0.28	0
+C028	CCOC(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.46	7.46	399.50	4.36	92.79	2	7	5	4	0.22	0
+C029	Cc1csc(-c2nc(CN3CCOC3=O)[nH]c2-c2ccc3ncsc3c2)n1	7.04	7.04	397.49	4.07	84.00	1	7	4	4	0.22	0
+C030	COC(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.42	7.42	385.47	3.97	92.79	2	7	4	4	0.18	0
+C031	CCCOC(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.44	7.44	413.53	4.75	92.79	2	7	6	4	0.26	0
+C032	CCCCOC(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	7.13	7.13	427.56	5.14	92.79	2	7	7	4	0.30	0
+C033	CCCCCOC(=O)NCc1nc(-c2nc(C)cs2)c(-c2ccc3ncsc3c2)[nH]1	6.85	6.85	441.58	5.53	92.79	2	7	8	4	0.33	0
+C034	Cc1csc(-c2nc(CNC(=O)OC(C)C)[nH]c2-c2ccc3ncsc3c2)n1	7.39	7.39	413.53	4.75	92.79	2	7	5	4	0.26	0
+C035	Cc1csc(-c2nc(CNC(=O)OCC(C)C)[nH]c2-c2ccc3ncsc3c2)n1	7.44	7.44	427.56	5.00	92.79	2	7	6	4	0.30	0
+C036	Cc1csc(-c2nc(CNC(=O)OCC(C)(C)C)[nH]c2-c2ccc3ncsc3c2)n1	7.1	7.10	441.58	5.39	92.79	2	7	5	4	0.33	0
+
+
+Assess assay difference -> biological/chemical mechanism -> potency effect
+-> final prediction. Report only compact causal assessments, not chain-of-thought.
+First infer what the assay change would generally do, before assessing
+individual compound sensitivity. Select only the 1-4 mechanisms most likely
+to change potency for this assay pair; do not score every possible mechanism.
+Consider three groups (examples are prompts for selection, not checklists):
+compound_exposure: does less or more active compound reach the target?
+Examples: passive permeability, efflux, protein/nonspecific binding,
+metabolism, solubility, lysosomal sequestration.
+target_environment: is the target different in cells? Examples:
+ATP/substrate competition, protein partners, conformation, phosphorylation,
+target expression, mutations/activation state, subcellular localization.
+assay_readout: are the assays measuring different things or under different
+conditions? Examples: target concentration, incubation time, signal
+amplification, downstream biology, cytotoxicity, assay interference.
+
+"Cell-based", "biochemical", "different readout", etc. are observations,
+not mechanisms. Do not predict a potency shift from those labels alone.
+State the causal step that connects the assay difference to potency.
+Only include a mechanism if there is a plausible causal path from the
+supplied assay or compound information to potency. Otherwise leave it out
+rather than filling it with 'unknown'. If none is supported, use an empty
+array; the 1-4 preference does not require inventing a mechanism.
+Do not invent missing assay conditions, transporter levels, or biology.
+A plausible mechanism can have an uncertain magnitude or direction;
+make that uncertainty explicit in its range and confidence.
+
+Return one valid JSON object. Use assay_wide_mechanisms and every C### label from the compound table exactly once as top-level keys.
+Write assay_wide_mechanisms first. It is an array of 0-4 selected mechanisms
+describing the general assay change and its baseline potency effect.
+Each entry has exactly these fields:
+name: unique short descriptive mechanism name, reused as a reference below
+group: compound_exposure, target_environment, or assay_readout
+assay_change: one short statement of what changed from B to E
+causal_effect: one short statement connecting that change to active target
+exposure, target pharmacology, or the measured potency endpoint
+direction: E_stronger, E_weaker, or uncertain
+compound_dependence: minimal, likely, or unresolved; whether the effect
+is broadly shared or depends on compound properties/mechanism of action
+delta_contribution_range: [minimum, maximum], signed numerical estimates
+in pChEMBL units for a typical compound, ordered and between -5 and +5
+confidence: integer 0-3 (0 = very low, 3 = high)
+evidence_type: one of supplied_data, structure_inference, assay_text, general_prior
+
+Each result label maps to an object with exactly mechanisms and synthesis.
+mechanisms is an array of 0-4 applicable entries from assay_wide_mechanisms.
+Each entry has exactly these fields:
+name: reference to a selected assay-wide name; inherit its group,
+assay_change, causal_effect, and compound_dependence without repeating them
+compound_sensitivity: typical, higher, lower, or unresolved, relative to
+the baseline effect magnitude; use only supplied compound information
+to assess sensitivity, with any additional knowledge labelled general_prior
+compound_basis: one short statement supporting this sensitivity; describe
+a structure/property link for compound-specific effects, or state that
+the assay-wide estimate is used when no compound-specific evidence exists
+direction: E_stronger, E_weaker, or uncertain for this result
+delta_contribution_range: [minimum, maximum] signed pChEMBL estimates
+between -5 and +5, representing the complete contribution for this result
+confidence: integer 0-3
+evidence_type: one of supplied_data, structure_inference, assay_text, general_prior
+Assay-wide effects use the shared baseline unless evidence supports a
+compound-specific change. Refine compound-dependent effects using supplied
+SMILES/descriptors; formal charge in SMILES does not establish protonation
+at assay pH. A structural feature alone does not establish transporter
+substrate status, cellular metabolism, or target binding mode.
+Compound contributions replace their corresponding baseline contributions;
+do not add both. Omit an inapplicable mechanism rather than inserting an
+unknown placeholder. Do not double-count shared causal steps (for example
+reduced unbound exposure and the permeability/binding processes causing it).
+E_stronger contributions must have nonnegative bounds, E_weaker must have
+nonpositive bounds; uncertain contributions may span zero.
+
+Before the final number, combine the selected contributions and state
+whether they reinforce or oppose each other. Account for overlapping
+mechanisms and uncertain estimates rather than summing them blindly.
+synthesis contains model-output fields, in this order:
+mechanism_interaction: reinforcing, opposing, single_mechanism,
+no_supported_mechanism, or uncertain
+combined_effect: one short statement of the net effect of the selected
+contributions, including any cancellation or overlap
+expected_delta_range: [minimum, maximum] combined numerical bounds
+between -5 and +5, consistent with the selected contributions
+predicted_delta_pchembl: signed JSON number between -5 and +5, inside that range
+predicted_E_pchembl: B_median_pChEMBL + predicted_delta_pchembl
+prediction_confidence: integer 0-3
+uncertainty_drivers: array of 0-3 short descriptions of missing information
+or uncertain assumptions affecting this prediction
+If no causal mechanism is supported, use no_supported_mechanism, a
+conservative near-zero prediction, low confidence, and a broad uncertainty
+range. Do not treat missing evidence as proof of equal potency.
+
+Keep causal_effect, compound_basis, and combined_effect concise; do not
+provide chain-of-thought, step-by-step reasoning, or long evidence narratives.
+Cell-line-specific expression, mutations, transporter levels, and other
+biological properties may be inferred from pretrained knowledge when relevant,
+but must be labelled general_prior, assigned appropriate confidence, and
+distinguished from facts present in the supplied assay or compound data.
+Use supplied_data for explicit table values or BAO format labels,
+assay_text for conclusions grounded in the supplied assay description,
+and structure_inference only for deductions from supplied SMILES or
+descriptors. Other biological claims require general_prior and should
+have lower confidence than directly supplied facts unless highly certain.
+Output JSON only, without Markdown fences or extra prose.
+Calculate predicted_E_pchembl separately for each label using its
+B_median_pChEMBL in the table. Do not use or infer hidden E measurements.

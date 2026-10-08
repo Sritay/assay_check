@@ -1,0 +1,162 @@
+Predict the change in potency when moving from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger potency in E; a negative delta means weaker potency.
+The final predicted_delta_pchembl must be between -5 and +5 pChEMBL units.
+
+Assay B (source, cell-free biochemical):
+Target name: Activin receptor type-1
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of human ALK2 using casein as substrate in presence of [gamma-33P]-ATP by radiometric hotspot assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000357
+assay_group: NULL
+
+Assay E (destination):
+Target name: Activin receptor type-1
+Target type: SINGLE PROTEIN
+Target class: ALK-family receptor kinase
+Target confidence score: 9
+Cell name: HEK293
+Assay cell type: HEK293
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Competitive displacement of PBI-6908 from nanoluciferase-fused ALK2 (unknown origin) expressed in HEK293 cells incubated for 2 hrs by NanoBRET NanoGlo substrate based NanoBRET assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: HEK293
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+No compound identities, structures, or B potency measurements are provided.
+Assess a typical compound measured in both assays using the same harness.
+
+Assess assay difference -> biological/chemical mechanism -> potency effect
+-> final prediction. Report only compact causal assessments, not chain-of-thought.
+First infer what the assay change would generally do, before assessing
+individual compound sensitivity. Select only the 1-4 mechanisms most likely
+to change potency for this assay pair; do not score every possible mechanism.
+Consider three groups (examples are prompts for selection, not checklists):
+compound_exposure: does less or more active compound reach the target?
+Examples: passive permeability, efflux, protein/nonspecific binding,
+metabolism, solubility, lysosomal sequestration.
+target_environment: is the target different in cells? Examples:
+ATP/substrate competition, protein partners, conformation, phosphorylation,
+target expression, mutations/activation state, subcellular localization.
+assay_readout: are the assays measuring different things or under different
+conditions? Examples: target concentration, incubation time, signal
+amplification, downstream biology, cytotoxicity, assay interference.
+
+"Cell-based", "biochemical", "different readout", etc. are observations,
+not mechanisms. Do not predict a potency shift from those labels alone.
+State the causal step that connects the assay difference to potency.
+Only include a mechanism if there is a plausible causal path from the
+supplied assay or compound information to potency. Otherwise leave it out
+rather than filling it with 'unknown'. If none is supported, use an empty
+array; the 1-4 preference does not require inventing a mechanism.
+Do not invent missing assay conditions, transporter levels, or biology.
+A plausible mechanism can have an uncertain magnitude or direction;
+make that uncertainty explicit in its range and confidence.
+
+Return one valid JSON object. Use exactly two top-level keys: assay_wide_mechanisms and typical_compound.
+Write assay_wide_mechanisms first. It is an array of 0-4 selected mechanisms
+describing the general assay change and its baseline potency effect.
+Each entry has exactly these fields:
+name: unique short descriptive mechanism name, reused as a reference below
+group: compound_exposure, target_environment, or assay_readout
+assay_change: one short statement of what changed from B to E
+causal_effect: one short statement connecting that change to active target
+exposure, target pharmacology, or the measured potency endpoint
+direction: E_stronger, E_weaker, or uncertain
+compound_dependence: minimal, likely, or unresolved; whether the effect
+is broadly shared or depends on compound properties/mechanism of action
+delta_contribution_range: [minimum, maximum], signed numerical estimates
+in pChEMBL units for a typical compound, ordered and between -5 and +5
+confidence: integer 0-3 (0 = very low, 3 = high)
+evidence_type: one of supplied_data, structure_inference, assay_text, general_prior
+
+Each result label maps to an object with exactly mechanisms and synthesis.
+mechanisms is an array of 0-4 applicable entries from assay_wide_mechanisms.
+Each entry has exactly these fields:
+name: reference to a selected assay-wide name; inherit its group,
+assay_change, causal_effect, and compound_dependence without repeating them
+compound_sensitivity: typical, higher, lower, or unresolved, relative to
+the baseline effect magnitude; use only supplied compound information
+to assess sensitivity, with any additional knowledge labelled general_prior
+compound_basis: one short statement supporting this sensitivity; describe
+a structure/property link for compound-specific effects, or state that
+the assay-wide estimate is used when no compound-specific evidence exists
+direction: E_stronger, E_weaker, or uncertain for this result
+delta_contribution_range: [minimum, maximum] signed pChEMBL estimates
+between -5 and +5, representing the complete contribution for this result
+confidence: integer 0-3
+evidence_type: one of supplied_data, structure_inference, assay_text, general_prior
+Assay-wide effects use the shared baseline unless evidence supports a
+compound-specific change. Refine compound-dependent effects using supplied
+SMILES/descriptors; formal charge in SMILES does not establish protonation
+at assay pH. A structural feature alone does not establish transporter
+substrate status, cellular metabolism, or target binding mode.
+Compound contributions replace their corresponding baseline contributions;
+do not add both. Omit an inapplicable mechanism rather than inserting an
+unknown placeholder. Do not double-count shared causal steps (for example
+reduced unbound exposure and the permeability/binding processes causing it).
+E_stronger contributions must have nonnegative bounds, E_weaker must have
+nonpositive bounds; uncertain contributions may span zero.
+
+Before the final number, combine the selected contributions and state
+whether they reinforce or oppose each other. Account for overlapping
+mechanisms and uncertain estimates rather than summing them blindly.
+synthesis contains model-output fields, in this order:
+mechanism_interaction: reinforcing, opposing, single_mechanism,
+no_supported_mechanism, or uncertain
+combined_effect: one short statement of the net effect of the selected
+contributions, including any cancellation or overlap
+expected_delta_range: [minimum, maximum] combined numerical bounds
+between -5 and +5, consistent with the selected contributions
+predicted_delta_pchembl: signed JSON number between -5 and +5, inside that range
+predicted_E_pchembl: B_median_pChEMBL + predicted_delta_pchembl
+prediction_confidence: integer 0-3
+uncertainty_drivers: array of 0-3 short descriptions of missing information
+or uncertain assumptions affecting this prediction
+If no causal mechanism is supported, use no_supported_mechanism, a
+conservative near-zero prediction, low confidence, and a broad uncertainty
+range. Do not treat missing evidence as proof of equal potency.
+
+Keep causal_effect, compound_basis, and combined_effect concise; do not
+provide chain-of-thought, step-by-step reasoning, or long evidence narratives.
+Cell-line-specific expression, mutations, transporter levels, and other
+biological properties may be inferred from pretrained knowledge when relevant,
+but must be labelled general_prior, assigned appropriate confidence, and
+distinguished from facts present in the supplied assay or compound data.
+Use supplied_data for explicit table values or BAO format labels,
+assay_text for conclusions grounded in the supplied assay description,
+and structure_inference only for deductions from supplied SMILES or
+descriptors. Other biological claims require general_prior and should
+have lower confidence than directly supplied facts unless highly certain.
+Output JSON only, without Markdown fences or extra prose.
+For typical_compound, reference the applicable assay-wide mechanisms
+with compound_sensitivity unresolved and compound_basis stating that
+no compound information is supplied; use their baseline contributions.
+No B median is supplied in this assay-only prompt, so set
+predicted_E_pchembl to null for typical_compound; all other fields remain
+required. Do not invent a B potency or a compound structure.

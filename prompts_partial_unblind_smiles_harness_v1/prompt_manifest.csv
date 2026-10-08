@@ -1,0 +1,13 @@
+pair_code,b_assay_id,e_assay_id,endpoint,shared_compounds,compound_prompt,assay_only_prompt,review_note
+P001,CHEMBL4626169,CHEMBL4626181,IC50,29,P001_compounds.txt,P001_assay_only.txt,
+P002,CHEMBL5121992,CHEMBL5121993,IC50,21,P002_compounds.txt,P002_assay_only.txt,
+P003,CHEMBL5125830,CHEMBL5125831,IC50,11,P003_compounds.txt,P003_assay_only.txt,
+P004,CHEMBL5133124,CHEMBL5133128,IC50,12,P004_compounds.txt,P004_assay_only.txt,
+P005,CHEMBL1030214,CHEMBL1030216,IC50,13,P005_compounds.txt,P005_assay_only.txt,
+P006,CHEMBL1961066,CHEMBL1961074,IC50,22,P006_compounds.txt,P006_assay_only.txt,
+P007,CHEMBL2211754,CHEMBL2211755,IC50,36,P007_compounds.txt,P007_assay_only.txt,
+P008,CHEMBL3365509,CHEMBL3365512,IC50,17,P008_compounds.txt,P008_assay_only.txt,
+P009,CHEMBL4625363,CHEMBL4625364,IC50,10,P009_compounds.txt,P009_assay_only.txt,
+P010,CHEMBL4626180,CHEMBL4626182,IC50,14,P010_compounds.txt,P010_assay_only.txt,
+P011,CHEMBL728561,CHEMBL814457,IC50,17,P011_compounds.txt,P011_assay_only.txt,
+P012,CHEMBL861562,CHEMBL861567,IC50,17,P012_compounds.txt,P012_assay_only.txt,

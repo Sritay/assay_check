@@ -1,0 +1,211 @@
+Rate how ideal each of the 24 assay descriptions is according to the
+Smit et al. (2026) passage below. Use each assay's provided assay_type to
+determine which description requirements apply. Rate each description itself.
+
+Source passage:
+<smit_passage>
+Towards a “perfect assay description”
+Bioactivity data types in ChEMBL have diversified over time [1], but in general the two main classes of documents containing the information are of type “PUBLICATION” (extracted from the scientific literature) and “DATASET” (provided directly by depositors). Whereas we continue to work closely with depositors to ensure the submitted assay information meets our minimum criteria and follows our general structure for data deposition, for literature sources, the submitted data are more uniform in general. This allows us to use a high-level template for constructing the assay DESCRIPTION for literature data, which consists of the following components:
+
+Activity of drug + Target/Biological system + Expression system
++ Inducing agent + Assessment + Dose + Dose unit + Route
++ Drug regimen + Incubation time + Method + Miscellaneous data
+
+However, the “perfect assay description” will vary depending on the nature of the assay (i.e., ASSAY_TYPE). For example, a precise record of a purified protein target (source organism, amino acid changes, and deletions) is critical for binding assays, whereas the route of drug administration is more relevant to pharmacokinetics studies (ADME assays). Furthermore, the parameters necessary for interpretation vary according to the specific assay; a record of the solvent, pH and temperature (but not necessarily a target) is essential for drug stability assays, whereas information on drug metabolites is important for metabolism assays, and the target tissue (as well as biological system) may be key to understanding toxicity assays. For certain functional and binding assays, specific parameters, such as the voltage protocol for electrophysiology assays with ion channel targets such as hERG, improve interpretation [30].
+</smit_passage>
+
+Task instructions (not part of the source passage):
+Give one integer rating for each assay from 1 to 10, where 1 is irrelevant
+and 10 is perfect according to the supplied passage. Use the same definition
+for all 24 descriptions.
+
+Assay descriptions:
+<assays>
+<assay label="P001_B">
+assay_type: B
+<assay_description>
+Inhibition of human ALK2 using casein as substrate in presence of [gamma-33P]-ATP by radiometric hotspot assay
+</assay_description>
+</assay>
+
+<assay label="P001_E">
+assay_type: B
+<assay_description>
+Competitive displacement of PBI-6908 from nanoluciferase-fused ALK2 (unknown origin) expressed in HEK293 cells incubated for 2 hrs by NanoBRET NanoGlo substrate based NanoBRET assay
+</assay_description>
+</assay>
+
+<assay label="P002_B">
+assay_type: B
+<assay_description>
+Inhibition of ALK2 R206H mutant (unknown origin) assessed as enzymatic activity by microfluidic mobility shift assay
+</assay_description>
+</assay>
+
+<assay label="P002_E">
+assay_type: B
+<assay_description>
+Inhibition of ALK2 R206H mutant (unknown origin) transfected in BMP6-stimulated human HEK293 cells by luciferase reporter gene assay
+</assay_description>
+</assay>
+
+<assay label="P003_B">
+assay_type: B
+<assay_description>
+Inhibition of human recombinant N-terminal GST tagged ALK2 (147 to end residues) expressed in baculovirus infected in Sf9 cells assessed as loss of peptide phosphorylation activity using peptide substrate in presence of ATP and measured after 3 hrs by HTRF assay
+</assay_description>
+</assay>
+
+<assay label="P003_E">
+assay_type: B
+<assay_description>
+Inhibition of ALK2 in human HeLa cells assessed as reduction in BMP-7 induced SMAD1 phosphorylation incubated for 1 hr followed BMP-7 stimulation for 30 mins by HTRF assay
+</assay_description>
+</assay>
+
+<assay label="P004_B">
+assay_type: B
+<assay_description>
+Inhibition of ALK2 (unknown origin)
+</assay_description>
+</assay>
+
+<assay label="P004_E">
+assay_type: B
+<assay_description>
+Inhibition of ALK2 in human HeLa cells assessed as inhibition of SMAD1 phosphorylation
+</assay_description>
+</assay>
+
+<assay label="P005_B">
+assay_type: B
+<assay_description>
+Inhibition of human ALK5 kinase expressed in Sf9 cells
+</assay_description>
+</assay>
+
+<assay label="P005_E">
+assay_type: B
+<assay_description>
+Inhibition of TGF-beta-induced ALK5 in human HepG2 cells by luciferase assay
+</assay_description>
+</assay>
+
+<assay label="P006_B">
+assay_type: B
+<assay_description>
+Inhibition of human recombinant GST-fused ALK5 using TMB substrate after 30 mins by ELISA
+</assay_description>
+</assay>
+
+<assay label="P006_E">
+assay_type: B
+<assay_description>
+Inhibition of human recombinant ALK5 activity in human A549 cells assessed as TGFbeta-induced smad2/3 phosphorylation after 2 hrs by fluorescence assay
+</assay_description>
+</assay>
+
+<assay label="P007_B">
+assay_type: B
+<assay_description>
+Inhibition of ALK5-mediated TNFalpha-induced Smad2/3 phosphorylation in human A549 cells preincubated for 2 hrs before addition of TNFalpha after 1 hr by fluorescence analysis
+</assay_description>
+</assay>
+
+<assay label="P007_E">
+assay_type: B
+<assay_description>
+Inhibition of human ALK5 using GST-tagged Smad3 as substrate assessed as substrate phosphorylation after 30 mins by ELISA
+</assay_description>
+</assay>
+
+<assay label="P008_B">
+assay_type: B
+<assay_description>
+Inhibition of purified human ALK5 kinase after 45 mins by liquid scintillation counting in presence of ATP [gamma-32P]
+</assay_description>
+</assay>
+
+<assay label="P008_E">
+assay_type: B
+<assay_description>
+Inhibition of TGFbeta1-induced TGFbeta type 1 ALK5 in HEK293T cells after 30 mins by luciferase reporter gene assay
+</assay_description>
+</assay>
+
+<assay label="P009_B">
+assay_type: B
+<assay_description>
+Inhibition of ALK5 (unknown origin)
+</assay_description>
+</assay>
+
+<assay label="P009_E">
+assay_type: B
+<assay_description>
+Inhibition of ALK5 (unknown origin) expressed in mouse NIH/3T3 cells by cell-based luciferase assay
+</assay_description>
+</assay>
+
+<assay label="P010_B">
+assay_type: A
+<assay_description>
+Inhibition of human ALK5 using casein as substrate in presence of [gamma-33P]-ATP by radiometric hotspot assay
+</assay_description>
+</assay>
+
+<assay label="P010_E">
+assay_type: A
+<assay_description>
+Inhibition of recombinant human ALK5 expressed in HEK293 cells transfected with CAGA-luciferase and Renilla luciferase reporter after 24 hrs by dual luciferase reporter assay
+</assay_description>
+</assay>
+
+<assay label="P011_B">
+assay_type: F
+<assay_description>
+In vitro inhibition of transforming growth factor- beta dependent luciferase production in mink lung cells (p3TP Lux)
+</assay_description>
+</assay>
+
+<assay label="P011_E">
+assay_type: B
+<assay_description>
+In vitro inhibitory activity against human Transforming growth factor beta-1 receptor kinase (TGF-beta RIK)
+</assay_description>
+</assay>
+
+<assay label="P012_B">
+assay_type: B
+<assay_description>
+Inhibition of recombinant human TGFbeta R1 expressed in Sf9 cells
+</assay_description>
+</assay>
+
+<assay label="P012_E">
+assay_type: F
+<assay_description>
+Inhibition of TGFbeta R1 induced transcriptional activation of p3TP-Lux in mink Mv1Lu lung cells
+</assay_description>
+</assay>
+</assays>
+
+Return only one JSON object containing exactly 24 keys, one for each assay
+label below. Each value must be an integer between 1 and 10, not a string.
+
+Required JSON keys:
+"P001_B", "P001_E",
+"P002_B", "P002_E",
+"P003_B", "P003_E",
+"P004_B", "P004_E",
+"P005_B", "P005_E",
+"P006_B", "P006_E",
+"P007_B", "P007_E",
+"P008_B", "P008_E",
+"P009_B", "P009_E",
+"P010_B", "P010_E",
+"P011_B", "P011_E",
+"P012_B", "P012_E"
+
+Include every listed key exactly once. Do not add explanations, additional
+keys, nested objects, arrays or Markdown fences.

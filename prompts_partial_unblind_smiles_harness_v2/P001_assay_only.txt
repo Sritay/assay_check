@@ -1,0 +1,224 @@
+Predict the change in apparent potency or affinity from assay B to assay E.
+Use ΔpChEMBL = predicted pChEMBL(E) - measured pChEMBL(B).
+A positive delta means stronger apparent potency in E; a negative delta means weaker apparent potency.
+The assay-pair delta and every final compound delta must be between -5 and +5.
+
+Do not start from the assumption that moving from a biochemical assay to
+a cellular assay causes a fixed potency loss. First determine what is
+actually different between these assays and which mechanisms are
+plausible. The assay-pair prediction may be negative, near zero, or positive.
+Do not force the prediction toward a typical biochemical-to-cellular
+shift when assay-specific evidence points elsewhere.
+The presence of cells does not by itself establish poor permeability,
+efflux, metabolism, sequestration, or any other exposure penalty.
+
+Assay B (source, cell-free biochemical):
+Target name: Activin receptor type-1
+BAO format: BAO_0000357
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Inhibition of human ALK2 using casein as substrate in presence of [gamma-33P]-ATP by radiometric hotspot assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: NULL
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000357
+assay_group: NULL
+
+Assay E (destination):
+Target name: Activin receptor type-1
+Target type: SINGLE PROTEIN
+Target class: ALK-family receptor kinase
+Target confidence score: 9
+Cell name: HEK293
+Assay cell type: HEK293
+BAO format: BAO_0000219
+Endpoint: exact IC50 in nM
+Assay fields (NULL means no recorded value):
+description: Competitive displacement of PBI-6908 from nanoluciferase-fused ALK2 (unknown origin) expressed in HEK293 cells incubated for 2 hrs by NanoBRET NanoGlo substrate based NanoBRET assay
+assay_type: B
+assay_test_type: NULL
+assay_category: NULL
+assay_organism: Homo sapiens
+assay_strain: NULL
+assay_tissue: NULL
+assay_cell_type: HEK293
+assay_subcellular_fraction: NULL
+relationship_type: D
+confidence_score: 9
+curated_by: Autocuration
+bao_format: BAO_0000219
+assay_group: NULL
+
+No compound identities, structures, or B potency measurements are provided.
+Make a general assay-pair estimate using the same assay-level assessment.
+How to make the prediction
+1. Compare B and E. Read the full supplied descriptions and fields directly.
+Identify important supplied differences, such as isolated protein versus cells,
+catalytic activity versus binding or target engagement, direct versus downstream
+or phenotypic readout, target construct/state, substrate/cofactor, ATP,
+competitor/tracer conditions, incubation time, cell environment, target
+localization, or detection technology. These are examples, not a checklist.
+Distinguish target substrates and other assay components from detection reagents.
+Missing information is not evidence that a condition or effect is absent.
+
+2. Determine what the reported endpoint means in each assay: IC50, EC50, Ki,
+Kd, or another potency, affinity, activity, or binding measure. Ask what
+experimental factors determine the reported value in B and in E. Examples:
+substrate/ATP/cofactor or competitor concentration; tracer concentration and
+affinity; protein concentration; target construct/state; equilibrium, kinetics,
+catalytic turnover, incubation time; binding versus functional response;
+signal-generation differences. This list is illustrative, not
+exhaustive. Consider any other experimental factor with a plausible causal
+effect on the reported value, whether or not listed here. Explain why it is
+relevant to these assays; do not force the listed examples into the assessment.
+Identical endpoint labels do not guarantee comparable physical measurements;
+Ki, Kd, IC50 and EC50 are not automatically interchangeable quantities.
+
+3. Judge whether the reported B and E values measure sufficiently similar
+physical or functional quantities for their numerical difference to be
+interpreted directly. Matching endpoint names alone do not establish direct
+comparability. Consider the assay principle, readout, target state, substrates,
+tracers, competitors, and other measurement conditions. State
+measurement_comparability and one short comparability_reason.
+
+4. Assess measurement-system effects. Counterfactual check: suppose the free
+compound concentration at the target
+and the intrinsic compound-target interaction were identical in B and E.
+Would the assay systems still report different potency or affinity values?
+If yes, identify the measurement-system feature that could cause the difference.
+Record a concise answer in measurement_system_assessment, before cellular effects.
+Include all effects caused by how the assays measure potency or affinity here.
+Do not repeat a measurement-system effect in the biological mechanisms list.
+Measurement-system effects belong only in measurement_system_assessment.
+The mechanisms array should contain biological or cellular mechanisms only.
+
+5. Ask what biological or cellular differences could change the effective
+interaction with the target or measured response and make E weaker.
+6. Separately ask what could make E stronger. Relevant examples may include
+intracellular exposure, passive permeability, uptake, efflux, intracellular or
+protein/nonspecific binding, metabolism/active metabolites, chemical stability,
+accumulation or organelle/lysosomal sequestration,
+target conformation or phosphorylation, protein partners, oligomerization,
+localization/abundance, pathway amplification, redundancy/compensation, and
+irreversible or time-dependent effects. These examples do not restrict the search.
+
+"Biochemical assay", "cell-based assay", "different readout", or "compound must
+enter a cell" are observations, not causal explanations. State the physical,
+chemical, or biological step linking the difference to reported potency/affinity.
+Poor: "Cell assay causes weaker potency."
+Better: "Reduced intracellular unbound exposure could increase the amount of
+compound required to achieve the same target engagement."
+Do not assume this exposure loss exists merely because cells are present.
+
+Select only 0-4 biological or cellular mechanisms most relevant to the prediction.
+Measurement-system effects have already been assessed separately.
+Do not fill a checklist. You may propose any biological mechanism
+with a plausible causal explanation: state the assay difference, compound
+feature, or scientific knowledge making it relevant. Label mechanisms mainly
+based on scientific background knowledge general_prior. Include a poorly
+supported mechanism only if it materially affects interpretation, with low
+confidence. For each, give evidence, a short causal explanation, direction,
+importance and confidence. Neither measurement-system effects nor biological
+mechanisms receive separate numerical pChEMBL contributions. Only the combined
+assay_pair_delta is numerical at the assay level. Do not add individual effects
+as independent numbers or count overlapping effects twice.
+
+7. Summarize measurement-system and biological effects separately in
+measurement_effect_summary and biological_effect_summary. In net_interpretation,
+briefly state how these two sources of change combine without double-counting.
+
+8. Combine measurement-system and biological effects, including whether they
+reinforce or oppose each other.
+Make one general assay-pair estimate. No chemical series is supplied;
+state the additional uncertainty and do not invent compound-specific effects.
+First decide direction, then whether the net evidence supports little, modest,
+or substantial change. Choose a specific numerical fold magnitude (at least 1)
+and briefly justify it. Convert using log10(fold): positive assay_pair_delta for
+stronger E, negative for weaker E; fold 1 gives delta 0. If direction is uncertain,
+use a tentative sign for the point estimate and express uncertainty in the range.
+Only after choosing the numerical estimate, assign an approximate size category:
+little_change: 1-2 fold; small_change: 2-5 fold; moderate_change: 5-10 fold;
+large_change: 10-30 fold; very_large_change: more than 30 fold.
+Do not repeatedly default to 5-fold or approximately -0.7 pChEMBL. Do not choose
+zero merely because information is missing; show the uncertainty in your estimate.
+
+9. Fold-change sanity check: convert the proposed delta back using
+10**abs(assay_pair_delta). Does the evidence support a shift of that size?
+|delta| around 0.3 is about 2-fold; 0.7 about 5-fold; 1.0 about 10-fold;
+1.5 about 30-fold. A large numerical shift needs stronger mechanistic support
+than a small qualitative concern. Record one brief calibration statement,
+not a second prediction.
+
+
+Evidence and uncertainty
+supplied_data: an explicit value/property in the input.
+assay_text: information directly stated in the assay description.
+structure_inference: a deduction from supplied SMILES/descriptors.
+general_prior: scientific knowledge or assumptions not explicitly supplied.
+A cell-line label does not make claims about transporters, metabolism, ATP,
+target expression or mutations supplied facts. Relevant pretrained biological
+knowledge is allowed, but label it general_prior and distinguish it from inputs;
+give it lower confidence unless highly certain. Do not invent missing biology.
+Confidence: integer 0-3 (0 very low, 1 low, 2 moderate, 3 high).
+Give compact causal summaries only, not chain-of-thought or step-by-step reasoning.
+
+Required JSON
+Return one valid JSON object without Markdown fences or extra prose.
+Write the assay-level assessment once, using these sections in order:
+assay_comparison: an object with exactly these fields:
+  important_differences: array of short supplied differences
+  endpoint_B: IC50, EC50, Ki, Kd, or other
+  endpoint_E: IC50, EC50, Ki, Kd, or other
+  endpoint_relationship: same_kind, different_kind, or uncertain
+  measurement_comparability: directly_comparable, conditionally_comparable,
+    not_directly_comparable, or uncertain
+  comparability_reason: one short explanation
+  Identical labels do not establish identical physical measurements.
+measurement_system_assessment: an object with exactly these fields:
+  could_shift_reported_value: JSON true, false, or the string "uncertain"
+  direction: E_stronger, E_weaker, near_zero, or uncertain
+  summary: brief explanation answering the counterfactual check and summarizing
+    all relevant measurement-system effects, without numerical contributions
+  confidence: integer 0-3
+mechanisms: array of 0-4 biological or cellular mechanism objects only,
+each with exactly these fields:
+  name: short descriptive name; no predefined names required
+  assay_evidence: what supplied difference/feature or scientific knowledge suggests it
+  causal_effect: short causal explanation connecting it to reported potency/affinity
+  direction: E_stronger, E_weaker, or uncertain
+  expected_importance: small, medium, large, or uncertain
+  confidence: integer 0-3
+  evidence_type: supplied_data, assay_text, general_prior
+synthesis: an object with exactly these fields:
+  measurement_effect_summary: E_stronger, E_weaker, near_zero, or uncertain
+  biological_effect_summary: E_stronger, E_weaker, near_zero, opposing, or uncertain
+  net_interpretation: one short statement explaining how measurement-system
+    and biological effects combine without double-counting
+  effects_balance: mostly_weaker, mostly_stronger, opposing,
+    little_supported_effect, or uncertain
+  likely_fold_change: object with fold (numerical magnitude >= 1), direction
+    (E_stronger, E_weaker, near_zero, uncertain), then category (one of the five
+    size categories above; assign it after choosing the numerical estimate)
+  effect_size_basis: short explanation supporting the numerical effect size
+  fold_sanity_check: short statement checking whether the magnitude is supported
+  assay_pair_delta: signed number between -5 and +5; sign and magnitude must
+    match the chosen fold; abs(delta) = log10(fold), allowing rounding;
+    near_zero uses fold 1 and delta 0
+  expected_delta_range: [minimum, maximum], ordered bounds between -5 and +5
+    containing assay_pair_delta; an uncertainty range, not mechanism contributions
+  prediction_confidence: integer 0-3
+  main_uncertainties: array of short uncertainties or missing information
+
+Use exactly four top-level fields: assay_comparison, measurement_system_assessment,
+mechanisms, synthesis. Predict assay_pair_delta only and state the extra uncertainty
+from having no chemical series. Do not invent structures, compound-specific exposure,
+compound adjustments, B potency, or an E pChEMBL value.
+Never use hidden E potency measurements.
